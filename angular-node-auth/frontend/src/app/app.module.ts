@@ -14,6 +14,8 @@ import { NewMessageComponent } from './new-message.component';
 import { NavComponent } from './nav.component';
 import { HomeComponent } from './home.component';
 import { RegisterComponent } from './register.component';
+import { AuthService } from './auth.service';
+import { LoginComponent } from './login.component';
 
 const routes = [
   {
@@ -31,16 +33,20 @@ const routes = [
   {
     path: 'register',
     component: RegisterComponent
+  }, {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 
 @NgModule({
   imports: [
-    BrowserModule, RouterModule.forRoot(routes), FormsModule, ReactiveFormsModule, HttpModule, BrowserAnimationsModule,
+    BrowserModule, RouterModule.forRoot(routes), HttpModule, BrowserAnimationsModule,
+    FormsModule, ReactiveFormsModule,
     MatButtonModule, MatCardModule, MatInputModule, MatFormFieldModule, MatSnackBarModule, MatToolbarModule
   ],
-  declarations: [AppComponent, MessagesComponent, NewMessageComponent, NavComponent, HomeComponent, RegisterComponent],
+  declarations: [AppComponent, MessagesComponent, NewMessageComponent, NavComponent, HomeComponent, RegisterComponent, LoginComponent],
   bootstrap: [AppComponent],
-  providers: [WebService]
+  providers: [WebService, AuthService]
 })
 export class AppModule { }

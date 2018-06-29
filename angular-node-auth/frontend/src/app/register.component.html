@@ -2,26 +2,29 @@
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
     <mat-form-field>
-      <input style="width: 350px;" type="text" matInput placeholder="First Name" formControlName="firstName">
+      <input style="width: 350px;" [ngClass]="{'error': isValid('firstName')}" type="text" matInput placeholder="First Name" formControlName="firstName">
     </mat-form-field>
 
     <mat-form-field>
-      <input style="width: 350px;" type="text" matInput placeholder="Last Name" formControlName="lastName">
+      <input style="width: 350px;" [ngClass]="{'error': isValid('lastName')}" type="text" matInput placeholder="Last Name" formControlName="lastName">
     </mat-form-field>
 
     <mat-form-field>
-      <input style="width: 350px;" type="email" matInput placeholder="Email" formControlName="email">
+      <input style="width: 350px;" [ngClass]="{'error': isValid('email')}" type="email" matInput placeholder="Email" formControlName="email">
     </mat-form-field>
 
     <mat-form-field>
-      <input style="width: 350px;" type="password" matInput placeholder="Password" formControlName="password">
+      <input style="width: 350px;" [ngClass]="{'error': isValid('password')}" type="password" matInput placeholder="Password" formControlName="password">
     </mat-form-field>
 
     <mat-form-field>
-      <input style="width: 350px;" type="password" matInput placeholder="ConfirmPassword" formControlName="confirmPassword">
+      <input style="width: 350px;" [ngClass]="{'error': isValid('confirmPassword')}" type="password" matInput placeholder="ConfirmPassword"
+        formControlName="confirmPassword">
     </mat-form-field>
 
-    <br>
+    <br/>
+    <span *ngIf="form.errors?.mismatchedFields">Passwords do not match.</span>
+    <br/><br/>
 
     <button mat-raised-button color="primary">
       Register
