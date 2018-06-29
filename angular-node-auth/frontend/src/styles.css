@@ -1,0 +1,24 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body {
+  background: #eeeeee;
+  padding: 10px;
+}
+
+h1 {
+  font-family: Helvetica, sans-serif;
+  font-weight: normal;
+  margin: 8px;
+  padding-bottom: 20px;
+}
+
+.nav {
+  font-weight: 200;
+  letter-spacing: 1.4px;
+  font-size: 16px;
+}
+
+.card {
+  cursor: pointer;
+  margin-top: 8px;
+  letter-spacing: .5px;
+}
