@@ -1,12 +1,13 @@
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
-// tslint:disable-next-line:import-blacklist
 import { Subject } from 'rxjs/Rx';
 import { MatSnackBar } from '@angular/material';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class WebService {
+    // [x: string]: any;
     BASE_URL = 'http://localhost:2002/api';
 
     private messageStore = [];
@@ -14,9 +15,10 @@ export class WebService {
     private messageSubject = new Subject();
 
     messages = this.messageSubject.asObservable();
+    auth: any;
 
     constructor(private http: Http, private sb: MatSnackBar) {
-        this.getMessages();
+        this.getMessages('');
     }
 
     getMessages(user) {
@@ -38,6 +40,14 @@ export class WebService {
             this.handleError('Sorry, we are currently unable to post your message.');
         }
 
+    }
+
+    getUser() {
+        return this.http.get(this.BASE_URL + '/users/me', this.auth.tokenHeader).map(res => res.json());
+    }
+
+    saveUser(userData) {
+        return this.http.post(this.BASE_URL + '/users/me', userData, this.auth.tokenHeader).map(res => res.json());
     }
 
     private handleError(error) {

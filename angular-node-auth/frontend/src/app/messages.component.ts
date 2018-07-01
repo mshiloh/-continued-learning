@@ -16,13 +16,12 @@ import { ActivatedRoute } from '@angular/router';
 
 export class MessagesComponent {
 
-    messages;
-
     constructor(private webService: WebService, private route: ActivatedRoute) { }
 
     // tslint:disable-next-line:use-life-cycle-interface
     ngOnInit() {
-        const name = this.route.snapshot.params.name;
+        const name = this.route.snapshot.params['name'];
         this.webService.getMessages(name);
+        this.webService.getUser().subscribe();
     }
 }

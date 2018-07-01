@@ -16,6 +16,7 @@ import { HomeComponent } from './home.component';
 import { RegisterComponent } from './register.component';
 import { AuthService } from './auth.service';
 import { LoginComponent } from './login.component';
+import { UserComponent } from './user.component';
 
 const routes = [
   {
@@ -36,6 +37,9 @@ const routes = [
   }, {
     path: 'login',
     component: LoginComponent
+  }, {
+    path: 'user',
+    component: UserComponent
   }
 ];
 
@@ -45,7 +49,7 @@ const routes = [
     FormsModule, ReactiveFormsModule,
     MatButtonModule, MatCardModule, MatInputModule, MatFormFieldModule, MatSnackBarModule, MatToolbarModule
   ],
-  declarations: [AppComponent, MessagesComponent, NewMessageComponent, NavComponent, HomeComponent, RegisterComponent, LoginComponent],
+  declarations: [AppComponent, MessagesComponent, NewMessageComponent, NavComponent, HomeComponent, RegisterComponent, LoginComponent, UserComponent],
   bootstrap: [AppComponent],
   providers: [WebService, AuthService]
 })

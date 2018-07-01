@@ -5,7 +5,7 @@ import { NewMessageComponent } from './new-message.component';
 import { NavComponent } from './nav.component';
 
 @Component({
-  selector: 'app-home',
+  selector: 'home',
   template: `
   <new-message></new-message>
   <messages></messages>

@@ -2,19 +2,20 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from './auth.service';
 
+
 @Component({
-    moduleId: module.id,
     selector: 'register',
     templateUrl: 'register.component.html',
     styles: [`
-    .error {
-        background-color: #fff0f0
-    }
+        .error {
+            background-color: #fff0f0
+        }
     `
     ]
 })
 export class RegisterComponent {
     form;
+
     constructor(private fb: FormBuilder, private auth: AuthService) {
         this.form = fb.group({
             firstName: ['', Validators.required],
@@ -50,5 +51,3 @@ function emailValid() {
         return regex.test(control.value) ? null : { invalidEmail: true };
     };
 }
-
-emailValid();
